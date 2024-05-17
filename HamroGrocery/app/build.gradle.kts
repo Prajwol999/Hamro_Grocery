@@ -50,4 +50,7 @@ dependencies {
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation ("me.relex:circleindicator:1.3.2")
+    implementation ("me.relex:circleindicator:2.1.6")
+
 }
