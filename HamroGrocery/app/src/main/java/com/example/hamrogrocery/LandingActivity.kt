@@ -18,7 +18,7 @@ class LandingActivity : AppCompatActivity() {
         landbinding = ActivityLandingBinding.inflate(layoutInflater)
         setContentView(landbinding.root)
 
-        posttolist()
+
 
         landbinding.viewpager2.adapter = ViewPagerAdapter(imageList)
         landbinding.viewpager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -38,6 +38,7 @@ class LandingActivity : AppCompatActivity() {
         addtolist(R.drawable.queuepager)
         addtolist(R.drawable.startpager)
 
+        posttolist()
         }
         private fun addtolist(img:Int){
             imageList.add(img)

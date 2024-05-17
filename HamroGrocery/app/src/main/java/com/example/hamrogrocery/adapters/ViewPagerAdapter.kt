@@ -12,12 +12,6 @@ class ViewPagerAdapter(private var img:List<Int>): RecyclerView.Adapter<ViewPage
     inner class Pager2ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image: ImageView = itemView.findViewById(R.id.imageView)
 
-        init {
-            image.setOnClickListener {
-                val position = adapterPosition
-                Toast.makeText(itemView.context, "You clicked on image ${position + 1}", Toast.LENGTH_SHORT).show()
-            }
-        }
     }
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -27,7 +21,7 @@ class ViewPagerAdapter(private var img:List<Int>): RecyclerView.Adapter<ViewPage
     }
 
     override fun onBindViewHolder(holder: ViewPagerAdapter.Pager2ViewHolder, position: Int) {
-        return holder.image.setImageResource(img[position])
+        holder.image.setImageResource(img[position])
     }
 
     override fun getItemCount(): Int {
