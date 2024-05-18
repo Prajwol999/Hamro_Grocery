@@ -29,7 +29,7 @@ class LandActivity : AppCompatActivity() {
         landBinding.viewpager2.adapter=adapter
 
         landBinding.skip.setOnClickListener{
-            var intent= Intent(this@LandActivity,MainActivity2::class.java)
+            var intent= Intent(this@LandActivity,DashActivity::class.java)
             startActivity(intent)
             finish()
         }
