@@ -19,10 +19,10 @@ class LandActivity : AppCompatActivity() {
         landBinding.root
 
         viewPager2=landBinding.viewpager2
-        imgList.add(R.drawable.cardpager)
+        imgList.add(R.drawable.queuepager)
         imgList.add(R.drawable.deliverypager)
         imgList.add(R.drawable.parkingpager)
-        imgList.add(R.drawable.queuepager)
+        imgList.add(R.drawable.cardpager)
         imgList.add(R.drawable.startpager)
 
         adapter= ImageAdapter(imgList, viewPager2)

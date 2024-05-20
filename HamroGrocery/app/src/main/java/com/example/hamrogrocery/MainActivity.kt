@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var  mainBinding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         mainBinding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
