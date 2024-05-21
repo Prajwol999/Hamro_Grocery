@@ -3,10 +3,7 @@ package com.example.hamrogrocery
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.hamrogrocery.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
@@ -18,11 +15,11 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(signupBinding.root)
 
         signupBinding.signupBtn.setOnClickListener {
-            if (signupBinding.agreeCheckBox.isChecked){
+            if (signupBinding.agreeCheckBox.isChecked&&signupBinding.password.text.toString().length>=8&&signupBinding.phoneNo.text.toString().length==10&&signupBinding.username.text.toString().isNotEmpty()){
                 sharedPreferences=getSharedPreferences("Sign-Up", MODE_PRIVATE)
                 val editor=sharedPreferences.edit()
                 editor.putString("name",signupBinding.username.text.toString())
-                editor.putString("email",signupBinding.phoneNo.text.toString())
+                editor.putString("phone",signupBinding.phoneNo.text.toString())
                 editor.putString("password",signupBinding.password.text.toString())
                 editor.apply()
                 finish()
