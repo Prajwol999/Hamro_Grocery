@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <item android:title="Home"
+        android:icon="@drawable/homelogo"
+        android:id="@+id/home"
+        android:textColor="#FFFFFF"
+        />
+    <item android:title="Shops"
+        android:icon="@drawable/shoplogo"
+        android:id="@+id/shop"
+        android:textColor="#FFFFFF"/>
+    <item android:title="My List"
+        android:icon="@drawable/listlogo"
+        android:id="@+id/list"
+        android:textColor="#FFFFFF"/>
+    <item android:title="My History"
+        android:icon="@drawable/historylogo"
+        android:id="@+id/history"
+        android:textColor="#FFFFFF"/>
+    <item android:title="Profile"
+        android:icon="@drawable/profilelogo"
+        android:id="@+id/profile"
+        android:textColor="#FFFFFF"
+        />
+</menu>
