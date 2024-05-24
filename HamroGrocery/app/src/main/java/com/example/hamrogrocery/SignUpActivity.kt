@@ -114,10 +114,10 @@ class SignUpActivity : AppCompatActivity() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
+
                     Toast.makeText(this, "Google sign in successful", Toast.LENGTH_SHORT).show()
                 } else {
-                    // If sign in fails, display a message to the user.
+
                     Toast.makeText(this, "Google sign in failed", Toast.LENGTH_SHORT).show()
                 }
             }
