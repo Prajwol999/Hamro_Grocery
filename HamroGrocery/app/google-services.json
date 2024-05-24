@@ -15,7 +15,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "964351838101-5qfq68rkod6v5pc7c68a7fh9trnguvr6.apps.googleusercontent.com",
+          "client_id": "964351838101-pqc3f2jhec5gddk2rl7pc5f9jelvki0i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hamrogrocery",
+            "certificate_hash": "8e2a10417daa2acb0a736bfaa63157a65a91938e"
+          }
+        },
+        {
+          "client_id": "964351838101-pngbfdfre9mih9f1nai3v5etu7mj7s9s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

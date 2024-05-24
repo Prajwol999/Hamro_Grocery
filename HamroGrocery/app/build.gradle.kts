@@ -55,5 +55,10 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation ("me.relex:circleindicator:1.3.2")
     implementation ("me.relex:circleindicator:2.1.6")
+    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
+
+
 
 }
