@@ -1,8 +1,6 @@
 package com.example.hamrogrocery.fragments
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,38 +10,47 @@ import androidx.fragment.app.Fragment
 import com.example.hamrogrocery.DashActivity
 import com.example.hamrogrocery.SignUpActivity
 import com.example.hamrogrocery.databinding.FragmentProfileBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class ProfileFragment : Fragment() {
-    lateinit var profileBinding: FragmentProfileBinding
-    lateinit var sharedPreferences: SharedPreferences
+    private lateinit var profileBinding: FragmentProfileBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-       profileBinding= FragmentProfileBinding.inflate(layoutInflater)
+        profileBinding = FragmentProfileBinding.inflate(layoutInflater)
+        auth = FirebaseAuth.getInstance()
+
         profileBinding.register.setOnClickListener {
-            var intent=Intent(activity, SignUpActivity::class.java)
+            val intent = Intent(activity, SignUpActivity::class.java)
             startActivity(intent)
         }
 
-
         profileBinding.signinBtn.setOnClickListener {
-            sharedPreferences=requireActivity().getSharedPreferences("Sign-Up",Context.MODE_PRIVATE)
-            var name=sharedPreferences.getString("name","")
-            var email=sharedPreferences.getString("phone","")
-            var pass= sharedPreferences.getString("pass","")
-            if(profileBinding.userField.text.toString()==name || profileBinding.userField.text.toString()==email && profileBinding.passfield.text.toString()==pass){
-                var intent=Intent(activity,DashActivity::class.java)
-                startActivity(intent)
-            }else{
-                Toast.makeText(activity,"Invalid Credentials",Toast.LENGTH_SHORT).show()
-        }
+            val email = profileBinding.userField.text.toString().trim()
+            val password = profileBinding.passfield.text.toString().trim()
 
+            if (email.isNotEmpty() && password.isNotEmpty()) {
+                signInWithEmailPassword(email, password)
+            } else {
+                Toast.makeText(activity, "Please enter email and password", Toast.LENGTH_SHORT).show()
+            }
         }
-
 
         return profileBinding.root
     }
 
+    private fun signInWithEmailPassword(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val intent = Intent(activity, DashActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(activity, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
 }
