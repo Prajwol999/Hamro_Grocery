@@ -2,10 +2,10 @@ package com.example.hamrogrocery
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hamrogrocery.databinding.ActivityMainBinding
-import android.os.Handler
 
 class MainActivity : AppCompatActivity() {
     lateinit var  mainBinding: ActivityMainBinding
@@ -20,7 +20,5 @@ class MainActivity : AppCompatActivity() {
             finish()
         },3000)
 
-        }
     }
-
-
+}

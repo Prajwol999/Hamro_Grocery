@@ -19,7 +19,6 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         signupBinding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(signupBinding.root)
 
@@ -34,22 +33,32 @@ class SignUpActivity : AppCompatActivity() {
                 ).show()
                 return@setOnClickListener
             }
-            val username = signupBinding.username.text.toString().trim()
-            val password = signupBinding.password.text.toString().trim()
-            val phone = signupBinding.phoneNo.text.toString().trim()
 
-            if (validateInput(username, password, phone)) {
-                createUser(username, password)
+            val email = signupBinding.username.text.toString().trim()
+            val password = signupBinding.password.text.toString().trim()
+
+            if (validateInput(email, password)) {
+                createUserWithEmailPassword(email, password)
             }
         }
 
         signupBinding.imageView3.setOnClickListener {
             signInWithGoogle()
         }
+
+        signupBinding.SignIn.setOnClickListener {
+            val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        signupBinding.terms.setOnClickListener {
+            val intent = Intent(this@SignUpActivity, ConditionActivity::class.java)
+            startActivity(intent)
+        }
     }
 
-    private fun validateInput(username: String, password: String, phone: String): Boolean {
-        if (username.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
+    private fun validateInput(email: String, password: String): Boolean {
+        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             Toast.makeText(this, "Please enter a valid email", Toast.LENGTH_SHORT).show()
             return false
         }
@@ -59,20 +68,16 @@ class SignUpActivity : AppCompatActivity() {
             return false
         }
 
-        if (phone.isEmpty() || !android.util.Patterns.PHONE.matcher(phone).matches()) {
-            Toast.makeText(this, "Please enter a valid phone number", Toast.LENGTH_SHORT).show()
-            return false
-        }
-
         return true
     }
 
-    private fun createUser(username: String, password: String) {
+    private fun createUserWithEmailPassword(email: String, password: String) {
         signupBinding.signupBtn.isEnabled = false
-        auth.createUserWithEmailAndPassword(username, password).addOnCompleteListener { task ->
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             signupBinding.signupBtn.isEnabled = true
             if (task.isSuccessful) {
-                Toast.makeText(this@SignUpActivity, "User Created", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SignUpActivity, "SignUp Successful", Toast.LENGTH_SHORT).show()
+                // Proceed with your app flow after successful sign-up
             } else {
                 Toast.makeText(
                     this@SignUpActivity,
@@ -88,7 +93,6 @@ class SignUpActivity : AppCompatActivity() {
             .requestIdToken("964351838101-pngbfdfre9mih9f1nai3v5etu7mj7s9s.apps.googleusercontent.com")
             .requestEmail()
             .build()
-
 
         val googleSignInClient = GoogleSignIn.getClient(this, gso)
         val signInIntent = googleSignInClient.signInIntent
@@ -114,12 +118,12 @@ class SignUpActivity : AppCompatActivity() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-
+                    val user = auth.currentUser
                     Toast.makeText(this, "Google sign in successful", Toast.LENGTH_SHORT).show()
                 } else {
-
                     Toast.makeText(this, "Google sign in failed", Toast.LENGTH_SHORT).show()
                 }
             }
     }
 }
+
