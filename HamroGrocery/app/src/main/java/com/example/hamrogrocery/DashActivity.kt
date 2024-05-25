@@ -1,10 +1,11 @@
 package com.example.hamrogrocery
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.provider.CalendarContract.Colors
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -22,15 +23,31 @@ class DashActivity : AppCompatActivity() {
         dashBinding = ActivityDashBinding.inflate(layoutInflater)
         setContentView(dashBinding.root)
 
+
         dashBinding.navMenu.setOnItemSelectedListener {
             when(it.itemId){
-                R.id.home -> replaceFragment(HomeFragment())
-                R.id.shop -> replaceFragment(ShopFragment())
-                R.id.list -> replaceFragment(ListFragment())
-                R.id.history -> replaceFragment(HistoryFragment())
-                R.id.profile -> replaceFragment(ProfileFragment())
+                R.id.home ->{ replaceFragment(HomeFragment())
+                dashBinding.navMenu.itemTextAppearanceActive
+                }
+                R.id.shop ->{replaceFragment(ShopFragment())
+                    dashBinding.navMenu.itemTextAppearanceActive
+                }
+                R.id.list -> {
+                    replaceFragment(ListFragment())
+                    dashBinding.navMenu.itemTextAppearanceActive
+                }
+                R.id.history -> {
+                    replaceFragment(HistoryFragment())
+                    dashBinding.navMenu.itemTextAppearanceActive
+                }
+                R.id.profile -> {
+                    replaceFragment(ProfileFragment())
+                    dashBinding.navMenu.itemTextAppearanceActive
+                }
                 else -> {}
             }
+
+
             true
         }
     }
@@ -40,6 +57,9 @@ class DashActivity : AppCompatActivity() {
 
         fragmentTransaction.replace(R.id.frameLayout,fragment)
         fragmentTransaction.commit()
+
     }
+
+
 
 }
