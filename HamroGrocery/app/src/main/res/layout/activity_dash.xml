@@ -17,7 +17,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout"
-        app:menu="@menu/navigation_layout" />
+        app:menu="@menu/navigation_layout"
+        app:itemTextColor="@color/white"
+        app:itemActiveIndicatorStyle="@color/grey"
+        app:itemIconTint="@color/white"/>
 
     <FrameLayout
         android:id="@+id/frameLayout"
