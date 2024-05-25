@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.hamrogrocery.DashActivity
+import com.example.hamrogrocery.ForgetActivity
 import com.example.hamrogrocery.R
 import com.example.hamrogrocery.SignUpActivity
 import com.example.hamrogrocery.databinding.FragmentProfileBinding
@@ -23,8 +24,14 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
        profileBinding= FragmentProfileBinding.inflate(layoutInflater)
+
         profileBinding.register.setOnClickListener {
             var intent=Intent(activity,SignUpActivity::class.java)
+            startActivity(intent)
+        }
+
+        profileBinding.forgotPassword.setOnClickListener {
+            var intent=Intent(activity, ForgetActivity::class.java)
             startActivity(intent)
         }
 
