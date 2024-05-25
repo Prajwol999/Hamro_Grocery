@@ -77,7 +77,6 @@ class SignUpActivity : AppCompatActivity() {
             signupBinding.signupBtn.isEnabled = true
             if (task.isSuccessful) {
                 Toast.makeText(this@SignUpActivity, "SignUp Successful", Toast.LENGTH_SHORT).show()
-                // Proceed with your app flow after successful sign-up
             } else {
                 Toast.makeText(
                     this@SignUpActivity,
