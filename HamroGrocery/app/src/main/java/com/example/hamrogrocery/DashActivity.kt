@@ -5,7 +5,9 @@ import android.graphics.Color
 import android.os.Bundle
 import android.provider.CalendarContract.Colors
 import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -15,13 +17,20 @@ import com.example.hamrogrocery.fragments.HomeFragment
 import com.example.hamrogrocery.fragments.ListFragment
 import com.example.hamrogrocery.fragments.ProfileFragment
 import com.example.hamrogrocery.fragments.ShopFragment
+import com.google.android.material.navigation.NavigationView
 
-class DashActivity : AppCompatActivity() {
+class DashActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     lateinit var dashBinding: ActivityDashBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dashBinding = ActivityDashBinding.inflate(layoutInflater)
         setContentView(dashBinding.root)
+
+        setSupportActionBar(dashBinding.toolbar)
+        val toggle= ActionBarDrawerToggle(this,dashBinding.drawerlayout,dashBinding.toolbar,R.string.nav_open,R.string.nav_close)
+        dashBinding.drawerlayout.addDrawerListener(toggle)
+        toggle.syncState()
+        dashBinding.navigationDrawer.setNavigationItemSelectedListener(this)
 
 
         dashBinding.navMenu.setOnItemSelectedListener {
@@ -63,6 +72,8 @@ class DashActivity : AppCompatActivity() {
         dashBinding.navMenu.itemIconTintList = colorStateList
         dashBinding.navMenu.itemTextColor = colorStateList
     }
+
+
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager: FragmentManager =supportFragmentManager
         val fragmentTransaction: FragmentTransaction =fragmentManager.beginTransaction()
@@ -72,6 +83,31 @@ class DashActivity : AppCompatActivity() {
 
     }
 
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.profile ->{ replaceFragment(ProfileFragment())
+                dashBinding.navMenu.itemTextAppearanceActive
+            }
+            R.id.settings -> {
+                replaceFragment(HistoryFragment())
+                dashBinding.navMenu.itemTextAppearanceActive
+            }
+
+        }
+        dashBinding.drawerlayout.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+    override fun onBackPressed() {
+        if (dashBinding.drawerlayout.isDrawerOpen(GravityCompat.START)){
+            dashBinding.drawerlayout.closeDrawer(GravityCompat.START)
+        }
+        else{
+            super.onBackPressedDispatcher.onBackPressed()
+        }
+
+
+    }
 
 
 }
