@@ -50,6 +50,18 @@ class DashActivity : AppCompatActivity() {
 
             true
         }
+        val colorStateList = ColorStateList(
+            arrayOf(
+                intArrayOf(android.R.attr.state_selected), // State when the item is selected
+                intArrayOf(-android.R.attr.state_selected) // State when the item is not selected
+            ),
+            intArrayOf(
+                resources.getColor(R.color.grey),
+                Color.WHITE
+        ))
+
+        dashBinding.navMenu.itemIconTintList = colorStateList
+        dashBinding.navMenu.itemTextColor = colorStateList
     }
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager: FragmentManager =supportFragmentManager
