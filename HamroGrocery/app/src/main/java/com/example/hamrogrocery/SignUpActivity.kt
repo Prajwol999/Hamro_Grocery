@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hamrogrocery.databinding.ActivitySignUpBinding
+import com.example.hamrogrocery.fragments.ProfileFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -47,7 +48,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         signupBinding.SignIn.setOnClickListener {
-            val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
+            val intent = Intent(this@SignUpActivity, ProfileFragment::class.java)
             startActivity(intent)
         }
 
@@ -88,14 +89,18 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun signInWithGoogle() {
+        // Sign out the current user before starting the sign-in flow
+        auth.signOut()
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken("964351838101-pngbfdfre9mih9f1nai3v5etu7mj7s9s.apps.googleusercontent.com")
+            .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
 
         val googleSignInClient = GoogleSignIn.getClient(this, gso)
-        val signInIntent = googleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
+        googleSignInClient.signOut().addOnCompleteListener {
+            val signInIntent = googleSignInClient.signInIntent
+            startActivityForResult(signInIntent, RC_SIGN_IN)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -117,7 +122,6 @@ class SignUpActivity : AppCompatActivity() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    val user = auth.currentUser
                     Toast.makeText(this, "Google sign in successful", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this, "Google sign in failed", Toast.LENGTH_SHORT).show()
@@ -125,4 +129,3 @@ class SignUpActivity : AppCompatActivity() {
             }
     }
 }
-
