@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.hamrogrocery.DashActivity
+import com.example.hamrogrocery.ForgetActivity
 import com.example.hamrogrocery.SignUpActivity
 import com.example.hamrogrocery.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -37,6 +38,10 @@ class ProfileFragment : Fragment() {
             } else {
                 Toast.makeText(activity, "Please enter email and password", Toast.LENGTH_SHORT).show()
             }
+        }
+        profileBinding.forgotPassword.setOnClickListener {
+            val intent = Intent(activity, ForgetActivity::class.java)
+            startActivity(intent)
         }
 
         return profileBinding.root
