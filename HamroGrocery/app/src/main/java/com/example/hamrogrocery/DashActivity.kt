@@ -66,7 +66,7 @@ class DashActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             ),
             intArrayOf(
                 resources.getColor(R.color.grey),
-                Color.WHITE
+                resources.getColor(R.color.white)
         ))
 
         dashBinding.navMenu.itemIconTintList = colorStateList
