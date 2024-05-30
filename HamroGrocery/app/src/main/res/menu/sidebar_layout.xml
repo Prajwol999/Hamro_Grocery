@@ -16,6 +16,11 @@
             android:icon="@drawable/listlogo"
             android:title="Settings"/>
 
+<!--        <item-->
+<!--            android:id="@+id/logout"-->
+<!--            android:icon="@drawable/logout"-->
+<!--            android:title="Logout"/>-->
+
     </group>
 
 
