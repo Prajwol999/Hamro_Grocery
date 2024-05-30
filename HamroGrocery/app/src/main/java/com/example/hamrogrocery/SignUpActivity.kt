@@ -24,7 +24,6 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(signupBinding.root)
 
         auth = FirebaseAuth.getInstance()
-
         signupBinding.signupBtn.setOnClickListener {
             if (!signupBinding.agreeCheckBox.isChecked) {
                 Toast.makeText(
@@ -37,8 +36,9 @@ class SignUpActivity : AppCompatActivity() {
 
             val email = signupBinding.username.text.toString().trim()
             val password = signupBinding.password.text.toString().trim()
+            val phoneNum=signupBinding.phoneNo.text.toString().trim()
 
-            if (validateInput(email, password)) {
+            if (validateInput(email, password,phoneNum)) {
                 createUserWithEmailPassword(email, password)
             }
         }
@@ -58,7 +58,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private fun validateInput(email: String, password: String): Boolean {
+    private fun validateInput(email: String, password: String, phoneNum: String): Boolean {
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             Toast.makeText(this, "Please enter a valid email", Toast.LENGTH_SHORT).show()
             return false
@@ -66,6 +66,10 @@ class SignUpActivity : AppCompatActivity() {
 
         if (password.isEmpty() || password.length < 6) {
             Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if (phoneNum.isEmpty() || phoneNum.length < 10) {
+            Toast.makeText(this, "Please enter a valid phone number", Toast.LENGTH_SHORT).show()
             return false
         }
 
@@ -78,6 +82,7 @@ class SignUpActivity : AppCompatActivity() {
             signupBinding.signupBtn.isEnabled = true
             if (task.isSuccessful) {
                 Toast.makeText(this@SignUpActivity, "SignUp Successful", Toast.LENGTH_SHORT).show()
+                finish()
             } else {
                 Toast.makeText(
                     this@SignUpActivity,
@@ -89,10 +94,9 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun signInWithGoogle() {
-        // Sign out the current user before starting the sign-in flow
         auth.signOut()
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestIdToken("964351838101-pngbfdfre9mih9f1nai3v5etu7mj7s9s.apps.googleusercontent.com")
             .requestEmail()
             .build()
 

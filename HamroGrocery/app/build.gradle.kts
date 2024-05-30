@@ -39,7 +39,6 @@ android {
         jvmTarget = "1.8"
     }
 }
-
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -59,6 +58,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:21.2.0")
     implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
     implementation("com.google.firebase:firebase-analytics")
-
-
+    implementation ("com.google.firebase:firebase-analytics-ktx")
+    implementation ("com.google.firebase:firebase-auth-ktx")
+    implementation ("com.google.firebase:firebase-firestore-ktx")
 }
