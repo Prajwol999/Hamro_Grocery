@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.firebase.database.ktx)
     testImplementation(libs.junit)
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     androidTestImplementation(libs.androidx.junit)

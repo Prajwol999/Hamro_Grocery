@@ -11,6 +11,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.FirebaseDatabase
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var signupBinding: ActivitySignUpBinding
@@ -36,10 +37,10 @@ class SignUpActivity : AppCompatActivity() {
 
             val email = signupBinding.username.text.toString().trim()
             val password = signupBinding.password.text.toString().trim()
-            val phoneNum=signupBinding.phoneNo.text.toString().trim()
+            val phoneNum = signupBinding.phoneNo.text.toString().trim()
 
-            if (validateInput(email, password,phoneNum)) {
-                createUserWithEmailPassword(email, password)
+            if (validateInput(email, password, phoneNum)) {
+                createUserWithEmailAndPassword(email, password, phoneNum)
             }
         }
 
@@ -76,11 +77,14 @@ class SignUpActivity : AppCompatActivity() {
         return true
     }
 
-    private fun createUserWithEmailPassword(email: String, password: String) {
+    private fun createUserWithEmailAndPassword(email: String, password: String, phoneNum: String) {
         signupBinding.signupBtn.isEnabled = false
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             signupBinding.signupBtn.isEnabled = true
             if (task.isSuccessful) {
+                val userId = auth.currentUser?.uid
+                val userRef = FirebaseDatabase.getInstance().reference.child("users").child(userId!!)
+                userRef.child("phone").setValue(phoneNum)
                 Toast.makeText(this@SignUpActivity, "SignUp Successful", Toast.LENGTH_SHORT).show()
                 finish()
             } else {
