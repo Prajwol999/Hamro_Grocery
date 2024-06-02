@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "964351838101",
+    "firebase_url": "https://hamro-grocery-5d8fc-default-rtdb.firebaseio.com",
+    "project_id": "hamro-grocery-5d8fc",
+    "storage_bucket": "hamro-grocery-5d8fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964351838101:android:7398f907e7f0d3db4c189c",
+        "android_client_info": {
+          "package_name": "com.example.hamrogrocery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964351838101-pqc3f2jhec5gddk2rl7pc5f9jelvki0i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hamrogrocery",
+            "certificate_hash": "8e2a10417daa2acb0a736bfaa63157a65a91938e"
+          }
+        },
+        {
+          "client_id": "964351838101-pngbfdfre9mih9f1nai3v5etu7mj7s9s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmulF-kEQ_oOM_j8vIB_9U8xR4p7fK8GI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "964351838101-5qfq68rkod6v5pc7c68a7fh9trnguvr6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
