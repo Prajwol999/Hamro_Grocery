@@ -78,35 +78,25 @@
         android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
+        app:counterMaxLength="10"
+        app:counterEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="357dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/hamrobold"
             android:hint="Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="124dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/orange"
-        android:fontFamily="@font/hamrobold"
-        android:text="Upload"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.185"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="220dp"
         android:layout_height="25dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/hamrobolditallic"
         android:text="Upload your shop document"
         android:textSize="16dp"
@@ -117,11 +107,10 @@
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/hamrobold"
         android:text="I agree to the terms and conditions"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.189"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -137,5 +126,15 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="53dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
+        app:srcCompat="@drawable/uploadlogo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
