@@ -10,15 +10,18 @@
     <item android:title="Shops"
         android:icon="@drawable/shoplogo"
         android:id="@+id/shop"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        />
     <item android:title="My List"
         android:icon="@drawable/listlogo"
         android:id="@+id/list"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        />
     <item android:title="My History"
         android:icon="@drawable/historylogo"
         android:id="@+id/history"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        />
     <item android:title="Profile"
         android:icon="@drawable/profilelogo"
         android:id="@+id/profile"
