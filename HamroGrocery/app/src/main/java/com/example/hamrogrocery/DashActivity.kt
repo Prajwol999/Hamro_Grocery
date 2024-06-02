@@ -18,6 +18,7 @@ import com.example.hamrogrocery.fragments.HomeFragment
 import com.example.hamrogrocery.fragments.ListFragment
 import com.example.hamrogrocery.fragments.ProfileFragment
 import com.example.hamrogrocery.fragments.ShopFragment
+import com.example.hamrogrocery.vendorActivity.VendorSignUp
 import com.google.android.material.navigation.NavigationView
 
 class DashActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -85,8 +86,9 @@ class DashActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.profile -> {
-                replaceFragment(4)
+            R.id.vendorSign -> {
+                var intent=Intent(this@DashActivity,VendorSignUp::class.java)
+                startActivity(intent)
                 dashBinding.navMenu.itemTextAppearanceActive
             }
 

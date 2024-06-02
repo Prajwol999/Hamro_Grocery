@@ -7,9 +7,9 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@+id/profile"
-            android:icon="@drawable/profilelogo"
-            android:title="Profile"/>
+            android:id="@+id/vendorSign"
+            android:icon="@drawable/vendorlogo"
+            android:title="I am a Vendor."/>
 
         <item
             android:id="@+id/settings"
