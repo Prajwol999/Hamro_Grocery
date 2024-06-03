@@ -14,7 +14,5 @@ class VendorSignUp : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         vendorSignUpBinding = ActivityVendorSignUpBinding.inflate(layoutInflater)
         setContentView(vendorSignUpBinding.root)
-
-
     }
 }
