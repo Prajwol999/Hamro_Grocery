@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hamrogrocery.databinding.ActivitySignUpBinding
+import com.example.hamrogrocery.fragments.ProfileFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -47,8 +48,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         signupBinding.SignIn.setOnClickListener {
-            var intent=Intent(this@SignUpActivity,LoginActivity::class.java)
-            startActivity(intent)
+            finish()
         }
 
         signupBinding.terms.setOnClickListener {
