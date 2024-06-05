@@ -84,6 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/vendorPass"
             android:layout_width="357dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/hamrobold"
@@ -115,7 +116,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/vendorSignBtn"
         android:layout_width="140dp"
         android:layout_height="54dp"
         android:layout_marginTop="12dp"
@@ -128,7 +129,7 @@
         app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/uploadBtn"
         android:layout_width="53dp"
         android:layout_height="25dp"
         android:layout_marginTop="8dp"
