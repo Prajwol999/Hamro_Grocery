@@ -7,75 +7,75 @@
     android:layout_height="match_parent"
     tools:context=".ForgetActivity">
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
+  <TextView
+      android:id="@+id/textView9"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="4dp"
+      android:fontFamily="@font/hamrobold"
+      android:text="Forgot Password?"
+      android:textColor="@color/green"
+      android:textSize="32dp"
+      app:layout_constraintBottom_toTopOf="@+id/textView10"
+      app:layout_constraintStart_toStartOf="@+id/textView10"
+      app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+  <TextView
+      android:id="@+id/textView10"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="35dp"
+      android:layout_marginBottom="19dp"
+      android:fontFamily="@font/hamrobold"
+      android:text="Please enter your gmail and make\nsure you have access to your gmail. "
+      android:textSize="16dp"
+      app:layout_constraintBottom_toTopOf="@+id/textInputLayout4"
+      app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
+      app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/textInputLayout4"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginStart="33dp"
+      android:layout_marginEnd="33dp"
+      android:layout_marginBottom="44dp"
+      app:layout_constraintBottom_toTopOf="@+id/forgetbtn"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView10">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/emailtexthae"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:fontFamily="@font/hamrobold"
-        android:text="Forgot Password?"
-        android:textColor="@color/green"
-        android:textSize="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView10"
-        app:layout_constraintStart_toStartOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+        android:hint="Email" />
+  </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginBottom="19dp"
-        android:fontFamily="@font/hamrobold"
-        android:text="Please enter your gmail and make\nsure you have access to your gmail. "
-        android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout4"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+  <Button
+      android:id="@+id/forgetbtn"
+      android:layout_width="150dp"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="177dp"
+      android:backgroundTint="@color/green"
+      android:text="Click Me"
+      android:textColor="@color/white"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginBottom="44dp"
-        app:layout_constraintBottom_toTopOf="@+id/forgetbtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:id="@+id/emailtexthae"
-            android:layout_height="wrap_content"
-            android:hint="Email" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/forgetbtn"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="177dp"
-        android:backgroundTint="@color/green"
-        android:text="Click Me"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="142dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="161dp"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/lock" />
+  <ImageView
+      android:id="@+id/imageView7"
+      android:layout_width="142dp"
+      android:layout_height="120dp"
+      android:layout_marginTop="161dp"
+      android:layout_marginBottom="12dp"
+      app:layout_constraintBottom_toTopOf="@+id/textView9"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.498"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/lock" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
